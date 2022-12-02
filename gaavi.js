@@ -23,9 +23,17 @@ function MinMultiMatrix(dementions) {
     m_matrix[index][index].k = 0;
   }
 
+  
+  // از محل شمارش چنتا به جلو بره 
   for (s = 1; s < n; s++) {
+    
+    // ایندکس شروع
     for (let i = 0; i < n - s; i++) {
+      
       const j = i + s;
+      
+      
+      // ارایه شامل مقدار های مختلف کا
       let K_ValueArr = [];
 
       for (let k = i; k < j; k++) {
@@ -37,12 +45,10 @@ function MinMultiMatrix(dementions) {
           k: k,
         });
       }
-
+// پیدا کردن کوچک تربن حالت ضرب
       const small = K_ValueArr.reduce(function (res, obj) {
         return obj.value < res.value ? obj : res;
       });
-
-      console.log(small);
 
       m_matrix[i][j] = small;
     }
